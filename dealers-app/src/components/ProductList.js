@@ -7,10 +7,9 @@ const ProductList = ({ products, onItemClick }) => {
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            <a href="#" onClick={() => onItemClick(product)}>
-                <img src={product.image}/>
+          <img src={product.image}/>
               {product.name}
-            </a>
+              <button onClick={() => onItemClick(product)}></button>
           </li>
         ))}
       </ul>

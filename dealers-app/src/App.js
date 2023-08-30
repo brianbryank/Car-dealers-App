@@ -1,26 +1,55 @@
-import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import UserAuth from './components/UserAuth'; 
+import './App.css';
+import Display from './Display';
+import ProductDetails from './ProductDetails';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SignUp from './SignUp';
+import Landing from './Landing';
+import NotFound from './NotFound';
+import Cart from './Cart';
 
-// import ShoppingCart from './components/ShoppingCart';
-//import Cart from './components/Cart';
-import './styles/Navbar.css';
-function App () {
+function App() {
+  //Get to display products available
+const[products, setProducts] = useState([])
+
+useEffect(()=>{
+try {
+  fetch("http://ecommerce.muersolutions.com/api/v1/products")
+  .then(res=>res.json())
+  .then(data=>setProducts(data))
+} catch (error) {
+  console.log(error)
+}
+},[])
+
+//function to add products to cart
+    //set state
+const[inCart,setInCart]=useState([])
+    //function
+function addToCart(product){
+  setInCart([...inCart,product])
+    console.log(inCart);
+    //alert("Product added successfully")
+}
+  
+function removeFromCart(productToRemove) {
+  const updatedCart = inCart.filter((product) => product !== productToRemove);
+  setInCart(updatedCart);
+  
+}
   return (
-    // <Router>
-      <div>
-          <Navbar />
-           <UserAuth />
+    <div className="App">
+      <Routes>
+        <Route element={<Landing/>}>
+          <Route path="/" element={<Display products={products}/>}/>
+          <Route path="/product/:index" element={<ProductDetails addToCart={addToCart}/>}/>
+          <Route path="/signUp" element={<SignUp/>}/>
+          <Route path='/cart' element={<Cart inCart={inCart} onRemove={removeFromCart}/>}/>
+        </Route>
+        <Route path='*' element={<NotFound/>}/>
+      </Routes>
       
-        {/* <Switch>
-          <Route exact path="/" component={ProductList} />
-          <Route path="/product/:productId" component={ProductDetail} />
-          <Route path="/cart" component={ShoppingCart} />
-          <Route path="/checkout" component={Checkout} />
-        </Switch> */}
-      </div>
-//     {/* </Router> */}
+    </div>
   );
 }
 

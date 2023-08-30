@@ -3,14 +3,13 @@ import React, { useState, useEffect } from 'react';
 const ProductList = ({ products, onItemClick }) => {
   return (
     <div>
-      <h2>Product List</h2>
+      <h3>Product List</h3>
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            <a href="#" onClick={() => onItemClick(product)}>
-                <img src={product.image}/>
+          <img src={product.image}/>
               {product.name}
-            </a>
+              <button onClick={() => onItemClick(product)}></button>
           </li>
         ))}
       </ul>

@@ -37,7 +37,7 @@ npm install
 npm start
 - Open your browser and visit http://localhost:3000 to see the app in action.
 
-## ependencies
+## Dependencies
 * React
 * React Router
 ...

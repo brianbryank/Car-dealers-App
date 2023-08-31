@@ -1,112 +1,192 @@
-.add-to-cart-button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
+/* Reset some default styles */
+body, h1, h2, h3, h4, p {
+  margin: 0;
+  padding: 0;
 }
 
-.product-container {
-  margin-top: 50px;
-  text-align: center;
+/* Basic styles for the whole app */
+.App {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  text-align: center;
+  background-color: #ffffff;
 }
 
- .maincontainer h2 {
-  margin-top: 20px;
+/* Navigation bar styles */
+.navbar {
+  background-color: #2ab4a2;
+  color: rgb(190, 156, 42);
+  padding: 30px;
+  display: flex;
+  border-radius: 10px;
   align-items: center;
-  
-
- 
-  
+  flex-direction: row-reverse;
+  font-size: x-large;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.product-list {
+.navLink {
+  background-color: transparent;
+  border: none;
+  color: rgb(207, 15, 15);
+  cursor: pointer;
+  text-align: right;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 40px;
+  height: auto;
+  margin: 10px ;
+  cursor: pointer;
+
+}
+
+.navLink:hover {
+  background-color: #e0e0e0;
+}
+
+.navLink:focus {
+  outline: none;
+}
+
+.navLink p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.navLink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Main container styles */
+.maincontainer {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 50px;
+  color: #ff8800;
+}
+
+/* Product container styles */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 50px;
 }
 
 .product {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
+  border: 2px solid #dda9a9;
+  padding: 10px;
 }
 
 .product-image {
-  width: 100%; 
-  height: 200px; 
-  object-fit: cover; 
+  max-width: 50%;
+  height: auto;
 }
 
 .product-name {
   font-weight: bold;
-  margin-top: 8px;
-  flex-grow: 1;
+  margin-top: 4px;
+  color: #293b39;
 }
 
 .product-price {
-  color: #e74c3c;
-  margin-top: 4px;
+  color: #ff8800;
+  margin-top: 5px;
+  font-weight: bolder;
 }
 
-.add-to-cart-button {
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+/* Card styles for product details */
+.card-container-one {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  flex-direction: column;
 }
 
-.add-to-cart-button:hover {
-  background-color: #2980b9;
+.card-one {
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* SignUp.css */
+.card-side {
+  padding: 20px;
+}
 
-.signup-container {
+.card-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-details {
+  flex: 1;
+}
+
+/* Form styles */
+.form-container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 40px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  
 }
 
-.signup-label {
+.form-label {
+  display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.signup-input {
+.form-input {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.signup-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
+.form-button {
+  background-color: #00b894;
+  color: white;
+  padding: 10px 20px;
   border: none;
-  border-radius: 3px;
-  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Cart styles */
+.checkout-link {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.total-cost {
+  font-weight: bold;
+}
+
+/* Checkout form styles */
+.checkout-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.checkout-form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.checkout-form-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.checkout-form-button {
+  background-color: #00b894;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }

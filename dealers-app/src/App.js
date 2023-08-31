@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Display from './components/Display';
@@ -10,6 +9,7 @@ import Cart from './components/Cart';
 import LoginForm from './components/LoginForm';
 import CheckoutForm from './components/CheckoutForm';
 import FlyMenu from './components/FlyMenu';
+import './App.css';
 
 function App() {
   const [products, setProducts] = useState([]);

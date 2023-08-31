@@ -1,7 +1,7 @@
-import { useState } from "react";
-import './App.css';
+import React, { useState } from 'react';
+import '../App.css';
 
-const Login = () => {
+const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,13 +26,11 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        
+      .then(res => res.json())
+      .then(data => {
         console.log(data);
-      
       })
-      .catch((error) => console.error(error));
+      .catch(error => console.error(error));
 
     setEmail('');
     setPassword('');
@@ -66,4 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;

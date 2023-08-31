@@ -4,14 +4,13 @@ body, h1, h2, h3, h4, p {
   padding: 0;
 }
 
-/* Basic styles for the whole app */
+
 .App {
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: #ffffff;
 }
 
-/* Navigation bar styles */
 .navbar {
   background-color: #2ab4a2;
   color: rgb(190, 156, 42);

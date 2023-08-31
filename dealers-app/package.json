@@ -38,10 +38,6 @@
   },
   "devDependencies": {
     "gh-pages": "^6.0.0"
-  },
-      "url":
-       [
-        "https://phase-2-4-in-5-group.vercel.app/"
-      ]
+  }
      
 }

@@ -1,37 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-function ProductDetails() {
-  const { index } = useParams();
-  const [product, setProduct] = useState({});
-
+const ProductDetails = ({ addToCart }) => {
+  let { index } = useParams();
+  const [product, setProduct] = useState([]);
+  const [addedToCart, setAddedToCart] = useState(false);
   useEffect(() => {
-    fetch(`http://ecommerce.muersolutions.com/api/v1/products/`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data[index]);
-        setProduct(data[index]);
+    try {
+      fetch("http://ecommerce.muersolutions.com/api/v1/products", {
+        method: "GET",
+        headers: { "Content-Security-Policy": "upgrade-insecure-requests" },
       })
-      .catch(error => console.error(error));
+        .then((res) => res.json())
+        .then((data) => setProduct(data[index]));
+    } catch (error) {
+      alert(error);
+    }
   }, [index]);
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setAddedToCart(true);
+  };
+
+  if (!product) {
+    return <div>loading...</div>;
+  }
+
   return (
-    <div className="card-container-one">
-      <div key={index} className="card-one">
-        <div className="card-side card-image">
-          <img src={product.product_full_image} alt={product.product_name} />
-        </div>
-        <div className="card-side card-details">
-          <h1>{product.product_name}</h1>
-          <p>{product.product_description}</p>
-          <ul>
-            <li>Ranking: {product.ranking}</li>
-            <li>Unit Price: ${product.unit_price}</li>
-          </ul>
-        </div>
+    <div className="product-container">
+      <div className="product">
+        <img
+          src={product.product_full_image}
+          alt={product.product_name}
+          className="product-image"
+        />
+        <p className="product-name">{product.product_name}</p>
+        <h2 className="product-price">${product.unit_price}</h2>
+        <h6>Description: {product.product_description}</h6>
+        <p>Rank: {product.ranking}</p>
+        <h6>Created On: {product.created}</h6>
+        <button
+          onClick={() => handleAddToCart(product)}
+          className="add-to-cart-button"
+          disabled={addedToCart}
+        >
+          {addedToCart ? "Added to Cart" : "Add to Cart"}
+        </button>
       </div>
     </div>
   );
-}
+};
 
 export default ProductDetails;

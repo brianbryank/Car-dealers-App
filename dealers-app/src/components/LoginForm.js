@@ -39,8 +39,10 @@ const LoginForm = () => {
   return (
     <div className="login-container">
       <p><strong>Login to Your Account</strong></p>
+      <br/>
       <form onSubmit={handleSubmit}>
         <label className="login-label">Email:</label>
+        <br/>
         <input
           className="login-input"
           type="email"
@@ -49,7 +51,9 @@ const LoginForm = () => {
           value={email}
           onChange={handleEmail}
         />
+        <br/>
         <label className="login-label">Password:</label>
+        <br/>
         <input
           className="login-input"
           type="password"
@@ -58,6 +62,7 @@ const LoginForm = () => {
           value={password}
           onChange={handlePassword}
         />
+        <br/>
         <button className="login-button">Login</button>
       </form>
     </div>

@@ -208,7 +208,7 @@ body, h1, h2, h3, h4, p {
   border-radius: 5px;
   cursor: pointer;
 }
-/* styles.css */
+
 
 .signup-container {
   max-width: 400px;
@@ -275,6 +275,7 @@ button:hover {
 }
 
 .form-group {
+  
   margin: 10px 0;
 }
 
@@ -303,4 +304,5 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
 

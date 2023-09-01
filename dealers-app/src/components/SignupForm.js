@@ -48,22 +48,28 @@ const SignupForm = () => {
   return (
     <div className="signup-container">
       <p><strong>Sign up here</strong></p>
+      <br/>
       <form onSubmit={handleSubmit}>
         <label className="signup-label">First Name</label>
+        <br/>
         <input
           className="signup-input"
           type="text"
           placeholder="Enter your first name"
           onChange={handleFirstName}
         />
+        <br/>
         <label className="signup-label">Last Name</label>
+        <br/>
         <input
           className="signup-input"
           type="text"
           placeholder="Enter your last name"
           onChange={handleLastName}
         />
+        <br/>
         <label className="signup-label">Email:</label>
+        <br/>
         <input
           className="signup-input"
           type="email"
@@ -72,7 +78,9 @@ const SignupForm = () => {
           value={email}
           onChange={handleEmail}
         />
+        <br/>
         <label className="signup-label">Password:</label>
+        <br/>
         <input
           className="signup-input"
           type="password"
@@ -81,6 +89,7 @@ const SignupForm = () => {
           value={password}
           placeholder="Enter your password"
         />
+        <br/>
         <button className="signup-button">Sign Up</button>
       </form>
     </div>

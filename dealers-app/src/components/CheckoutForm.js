@@ -1,53 +1,76 @@
-import React, { useState } from 'react';
-import '../App.css';
+// import React, { useState } from 'react';
 
-const CheckoutForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
-    cost: 0, // Add a default value
-  });
+// const CheckoutForm = ({totalCost,onRemove}) => {
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     address: '',
+//     cardNumber: '',
+//     expiryDate: '',
+//     cvv: '',
+//   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // You can add further logic here, like sending the data to a server
-  };
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData((prevData) => ({
+//       ...prevData,
+//       [name]: value,
+//     }));
+//   };
 
-  return (
-    <div className="checkout-form-container">
-      <h2>Checkout</h2>
-      <form onSubmit={handleSubmit}>
-        <label className="checkout-form-label">
-          Name:
-          <br />
-          <input
-            placeholder='Write your full name'
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        {/* Rest of the form elements */}
-        <br />
-        <button className="checkout-form-button" type="submit">Place Order</button>
-      </form>
-    </div>
-  );
-};
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log('Form submitted:', formData);
 
-export default CheckoutForm;
+//   };
+
+//   return (
+//     <div className="checkout-form-container">
+//       <h2>Checkout</h2>
+//       <form onSubmit={handleSubmit}>
+//         <label className="checkout-form-label"><br />
+//           Name:
+//           <br />
+//           <input placeholder='Full Name' type="text" name="name" value={formData.name} onChange={handleChange} required />
+// </label>
+// <label className="checkout-form-label">
+//   Email:
+//   <br />
+//   <input placeholder='E-mail Address' type="email" name="email" value={formData.email} onChange={handleChange} required />
+// </label>
+// <label className="checkout-form-label">
+//   Address:
+//   <br />
+//   <textarea placeholder='Address' name="address" value={formData.address} onChange={handleChange} required />
+// </label>
+// <label className="checkout-form-label">
+//   Card Number:
+//   <br />
+//   <input  type="text" name="cardNumber" value={formData.cardNumber} onChange={handleChange} required />
+// </label>
+// <label className="checkout-form-label">
+//   Expiry Date:
+//   <br />
+//   <input type="text" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required />
+// </label>
+// <label className="checkout-form-label">
+//   CVV:
+//   <br />
+//   <input type="text" name="cvv" value={formData.cvv} onChange={handleChange} required />
+// </label>
+// <label className="checkout-form-label">
+//   Total Cost (USD): 
+//   <br />
+// <input type="number" name="cost" value= {totalCost} onChange={handleChange} disabled  />
+// </label>
+// <br />
+// <button onClick={onRemove} className="checkout-form-button" type="submit">Place Order</button>
+
+// </form>
+// </div>
+
+// );
+// };
+
+// export default CheckoutForm;

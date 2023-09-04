@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import './ProductDetails.css'; // Import your CSS file
 
 const ProductDetails = ({ addToCart }) => {
   let { index } = useParams();
   const [product, setProduct] = useState([]);
   const [addedToCart, setAddedToCart] = useState(false);
+
   useEffect(() => {
     try {
       fetch("http://ecommerce.muersolutions.com/api/v1/products", {
@@ -24,7 +26,7 @@ const ProductDetails = ({ addToCart }) => {
   };
 
   if (!product) {
-    return <div>loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (
@@ -35,18 +37,20 @@ const ProductDetails = ({ addToCart }) => {
           alt={product.product_name}
           className="product-image"
         />
-        <p className="product-name">{product.product_name}</p>
-        <h2 className="product-price">${product.unit_price}</h2>
-        <h6>Description: {product.product_description}</h6>
-        <p>Rank: {product.ranking}</p>
-        <h6>Created On: {product.created}</h6>
-        <button
-          onClick={() => handleAddToCart(product)}
-          className="add-to-cart-button"
-          disabled={addedToCart}
-        >
-          {addedToCart ? "Added to Cart" : "Add to Cart"}
-        </button>
+        <div className="product-info">
+          <p className="product-name">{product.product_name}</p>
+          <h2 className="product-price">${product.unit_price}</h2>
+          <p className="product-description">Description: {product.product_description}</p>
+          <p className="product-rank">Rank: {product.ranking}</p>
+          <p className="product-created">Created On: {product.created}</p>
+          <button
+            onClick={() => handleAddToCart(product)}
+            className={`add-to-cart-button ${addedToCart ? "added" : ""}`}
+            disabled={addedToCart}
+          >
+            {addedToCart ? "Added to Cart" : "Add to Cart"}
+          </button>
+        </div>
       </div>
     </div>
   );

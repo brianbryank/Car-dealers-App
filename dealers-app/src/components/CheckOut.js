@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CheckOutForm.css'; 
 
 const CheckOutForm = ({totalCost,onRemove}) => {
 

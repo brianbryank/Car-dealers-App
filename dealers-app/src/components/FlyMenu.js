@@ -1,38 +1,29 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import '../App.css';
+import './FltMenu.css';// Make sure your CSS file is properly linked
 import { FaShoppingCart, FaUserPlus, FaUserCheck, FaHome } from 'react-icons/fa';
 
 const FlyMenu = () => {
   return (
-    <div className="card-container">
+    <div className="fly-menu">
       <nav className="navbar">
-        <Link to="/">
-          <button className="navLink"></button>
-          <FaHome/>
+        <Link to="/" className="nav-link">
+          <FaHome />
           <p>Products</p>
         </Link>
-        <br />
-        <Link to="/components/signUp">
-          <button className="navLink"></button>
-          <FaUserPlus/>
-          <p>SignUp</p>
+        <Link to="/components/signUp" className="nav-link">
+          <FaUserPlus />
+          <p>Sign Up</p>
         </Link>
-        <br />
-        <Link to="/components/Login">
-          <button className="navLink"></button>
-          <FaUserCheck/>
+        <Link to="/components/Login" className="nav-link">
+          <FaUserCheck />
           <p>Login</p>
         </Link>
-        <br />
-        <Link to="/cart">
-          <button className="navLink"></button>
+        <Link to="/cart" className="nav-link">
           <FaShoppingCart />
-          <p>Cart</p>
         </Link>
-        <br />
       </nav>
-      <Outlet></Outlet>
+      <Outlet />
     </div>
   );
 };
